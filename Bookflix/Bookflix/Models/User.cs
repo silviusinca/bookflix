@@ -11,6 +11,7 @@ namespace Bookflix.Models
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public UserInformation UserInformation { get; set; }
+        public ICollection<UserBook> UserBooks { get; set; }
         [JsonIgnore]
         public string PasswordHash { get; set; }
         public Role Role { get; set; }

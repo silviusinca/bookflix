@@ -7,7 +7,7 @@ namespace Bookflix.Models.Base
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid ID { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime? DateCreated { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
