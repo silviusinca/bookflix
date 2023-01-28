@@ -10,7 +10,7 @@ namespace Bookflix.Models
         // sa zicem ca poti adauga si website-ul autorului in caz ca are
         public string? AuthorUrl { get; set; }
         // media review-urilor
-        public int? GradePointAverage { get; set; }
+        public float? GradePointAverage { get; set; }
         public ICollection<Review> Reviews { get; set; }
     }
 }
