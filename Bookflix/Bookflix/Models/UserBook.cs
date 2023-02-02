@@ -6,7 +6,6 @@ namespace Bookflix.Models
     {
         public Guid UserID { get; set; }
         public Guid BookID { get; set; }
-
         public User User { get; set; }
         public Book Book { get; set; }
     }
