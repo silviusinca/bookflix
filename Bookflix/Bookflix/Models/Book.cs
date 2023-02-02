@@ -8,10 +8,10 @@ namespace Bookflix.Models
         public string AuthorName { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public ICollection<Genre> Genres { get; set; }
+        public DateTime? DatePublished { get; set; }
         public ICollection<UserBook> UserBooks { get; set; }
-        // media review-urilor
         public ICollection<Review>? Reviews { get; set; }
-        public float? GradePointAverage { get; set; }
+        // media review-urilor
+        public float? Score { get; set; }
     }
 }
