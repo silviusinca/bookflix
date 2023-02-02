@@ -8,7 +8,6 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Token { get; set; }
-
         public UserResponseDTO(User user, string token)
         {
             ID = user.ID;
