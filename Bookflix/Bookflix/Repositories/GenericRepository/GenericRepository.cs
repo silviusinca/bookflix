@@ -105,12 +105,12 @@ namespace Bookflix.Repositories.GenericRepository
 
         public TEntity FindById(Guid id)
         {
-            throw new NotImplementedException();
+            return _table.Find(id);
         }
 
-        public Task<TEntity> FindByIdAsync(Guid id)
+        public async Task<TEntity> FindByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _table.FindAsync(id);
         }
     }
 }

@@ -63,20 +63,41 @@ namespace Bookflix.Controllers
             return Ok();
         }
 
-        [Authorization(Role.ADMIN)]
-        [HttpGet("admin")]
-        public IActionResult GetAllAdmin()
+        [HttpGet("get-all-users")]
+        public IActionResult GetAllUsers()
         {
             var users = _userService.GetAllUsers();
             return Ok(users);
         }
 
-        [Authorization(Role.USER)]
-        [HttpGet("user")]
-        public IActionResult GetAllUser()
+        [HttpPut("update/{id}")]
+        public IActionResult UpdateUser(Guid id, [FromBody] UserRequestDTO user)
         {
-            return Ok("User");
+            var userToUpdate = _userService.GetById(id);
+            if (userToUpdate == null)
+            {
+                return BadRequest("The book ID was not found!");
+            }
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.LastName = user.LastName;
+            userToUpdate.Email = user.Email;
+            _userService.Save();
+            return Ok();
         }
+
+        [HttpDelete("delete/{id}")]
+        public IActionResult DeleteUser(Guid id)
+        {
+            var userToDelete = _userService.GetById(id);
+            if (userToDelete == null)
+            {
+                return BadRequest("The book ID was not found!");
+            }
+            _userService.Delete(userToDelete);
+            _userService.Save();
+            return Ok();
+        }
+
 
     }
 }

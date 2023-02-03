@@ -26,7 +26,6 @@ namespace Bookflix.Controllers
             var books = await _bookService.GetAllBooks();
             return Ok(books);
         }
-        [Authorization(Role.ADMIN)]
         [HttpPost("add-book")]
         public async Task<IActionResult> Create(BookRequestDTO book)
         {
@@ -39,6 +38,35 @@ namespace Bookflix.Controllers
             };
 
             await _bookService.Create(bookToCreate);
+            return Ok();
+        }
+        [HttpPut("update/{id}")]
+        public IActionResult UpdateBook(Guid id, BookRequestDTO book)
+        {
+            var bookToUpdate = _bookService.GetById(id);
+            if (book == null)
+            {
+                return BadRequest("The book ID was not found!");
+            }
+
+            bookToUpdate.AuthorName = book.AuthorName;
+            bookToUpdate.Title = book.Title;
+            bookToUpdate.Description = book.Description;
+            bookToUpdate.DatePublished = book.DatePublished;
+            _bookService.Save();
+
+            return Ok();
+        }
+        [HttpDelete("delete/{id}")]
+        public IActionResult DeleteApartment(Guid id)
+        {
+            var bookToDelete = _bookService.GetById(id);
+            if (bookToDelete == null)
+            {
+                return BadRequest("The book ID was not found!");
+            }
+            _bookService.Delete(bookToDelete);
+            _bookService.Save();
             return Ok();
         }
     }
