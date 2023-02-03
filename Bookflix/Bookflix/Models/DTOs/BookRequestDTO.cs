@@ -10,8 +10,6 @@ namespace Bookflix.Models.DTOs
         public string AuthorName { get; set; }
         public string Description { get; set; }
         public DateTime DatePublished { get; set; }
-        public ICollection<Review> Reviews { get; set; }
-        public float Score { get; set; }
 
     }
 }
