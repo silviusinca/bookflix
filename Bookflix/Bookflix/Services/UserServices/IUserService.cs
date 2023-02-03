@@ -6,8 +6,8 @@ namespace Bookflix.Services.UserServices
     public interface IUserService
     {
         UserResponseDTO Authenticate(UserRequestDTO model);
-        UserRequestDTO GetById(Guid id);
-        Task Create(UserRequestDTO newUser);
+        User GetById(Guid id);
+        Task Create(User newUser);
         Task<List<User>> GetAllUsers();
         void Delete(User userToDelete);
         void Update(User userToUpdate);

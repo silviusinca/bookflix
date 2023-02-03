@@ -102,5 +102,15 @@ namespace Bookflix.Repositories.GenericRepository
             }
             return false;
         }
+
+        public TEntity FindById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<TEntity> FindByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

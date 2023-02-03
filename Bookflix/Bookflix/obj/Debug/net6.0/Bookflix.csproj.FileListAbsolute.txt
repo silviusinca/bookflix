@@ -87,3 +87,4 @@ C:\Users\Silviu\bookflix\Bookflix\Bookflix\obj\Debug\net6.0\Bookflix.genruntimec
 C:\Users\Silviu\bookflix\Bookflix\Bookflix\obj\Debug\net6.0\ref\Bookflix.dll
 C:\Users\Silviu\bookflix\Bookflix\Bookflix\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\Silviu\bookflix\Bookflix\Bookflix\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Silviu\bookflix\Bookflix\Bookflix\bin\Debug\net6.0\BCrypt.Net-Core.dll

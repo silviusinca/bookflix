@@ -1,5 +1,7 @@
 ﻿using Bookflix.Helpers.JwtUtils;
 using Bookflix.Helpers.Seeders;
+using Bookflix.Repositories.UserRepository;
+using Bookflix.Services.UserServices;
 
 namespace Bookflix.Helpers.Extensions
 {
@@ -7,13 +9,13 @@ namespace Bookflix.Helpers.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            //services.AddTransient<_, _>
+            services.AddTransient<IUserRepository, UserRepository>();
             return services;
         }
         
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            //services.AddTransient<_, _>
+            services.AddTransient<IUserService, UserService>();
             return services;
         }
 

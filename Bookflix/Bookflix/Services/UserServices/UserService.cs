@@ -14,7 +14,7 @@ namespace Bookflix.Services.UserServices
         {
             _userRepository = userRepository;
             _jwtUtils = jwtUtils;
-        }   
+        }
 
         public UserResponseDTO Authenticate(UserRequestDTO model)
         {
@@ -28,34 +28,34 @@ namespace Bookflix.Services.UserServices
             return new UserResponseDTO(user, token);
         }
 
-        public Task Create(UserRequestDTO newUser)
+        public async Task Create(User newUser)
         {
-            throw new NotImplementedException();
+            await _userRepository.CreateAsync(newUser);
+            await _userRepository.SaveAsync();
         }
 
         public void Delete(User userToDelete)
         {
-            throw new NotImplementedException();
+            _userRepository.Delete(userToDelete);
         }
 
-        public Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
-            throw new NotImplementedException();
-        }
-
-        public UserRequestDTO GetById(Guid id)
-        {
-            throw new NotImplementedException();
+            return await _userRepository.GetAllAsync();
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            return _userRepository.Save();
         }
 
         public void Update(User userToUpdate)
         {
-            throw new NotImplementedException();
+            _userRepository.Update(userToUpdate);
+        }
+        public User GetById(Guid id)
+        {
+            return _userRepository.FindById(id);
         }
     }
 }

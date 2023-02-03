@@ -12,5 +12,11 @@ namespace Bookflix.Repositories.UserRepository
         {
             return _table.FirstOrDefault(x => x.Username == username);
         }
+
+        public ICollection<User> FindAll()
+        {
+            return (ICollection<User>)_table.Join(_context.UsersInformation, user => user.ID, info => info.UserID,
+                (user, info) => new { user, info }).Select(res => res.user);
+        }
     }
 }
