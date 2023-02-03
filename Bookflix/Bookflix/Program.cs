@@ -1,4 +1,5 @@
 using Bookflix.Data;
+using Bookflix.Helpers;
 using Bookflix.Helpers.Extensions;
 using Bookflix.Helpers.Seeders;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSeeders();
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 var app = builder.Build();
 

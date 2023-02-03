@@ -59,8 +59,9 @@ namespace Bookflix.Helpers.JwtUtils
 
                 return userId;
             }
-            catch
+            catch (Exception exp)
             {
+                Console.Write(exp.ToString());
                 return Guid.Empty;
             }
         }

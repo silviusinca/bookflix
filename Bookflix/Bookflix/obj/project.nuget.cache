@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6ghvHXN5S82M3eVgYTBiQ+mQ0ZUFhPgl517ONteU0PBCW3+7prnGuRpxqFJ8nrm+un+NPG/inXAiJroipMPEJw==",
+  "dgSpecHash": "zln/r+xO3wOS9YP249X7w2QffZniW7Ov6UmRQ8OCrCdk/eelJnDy6G3ZJDxsHhld/IFL4eRjOGBPJ/QFywhOmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Silviu\\bookflix\\Bookflix\\Bookflix\\Bookflix.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Silviu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\Silviu\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Silviu\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Silviu\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\Silviu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Silviu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Silviu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

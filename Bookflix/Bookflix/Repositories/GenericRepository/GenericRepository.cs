@@ -83,9 +83,9 @@ namespace Bookflix.Repositories.GenericRepository
             {
                 return _context.SaveChanges() > 0;
             }
-            catch (SqlException ex)
+            catch (SqlException exp)
             {
-                Console.WriteLine(ex.ErrorCode);
+                Console.WriteLine(exp.ErrorCode);
             }
             return false;
         }
@@ -96,9 +96,9 @@ namespace Bookflix.Repositories.GenericRepository
             {
                 return await _context.SaveChangesAsync() > 0;
             }
-            catch (SqlException ex)
+            catch (SqlException exp)
             {
-                Console.WriteLine(ex.ErrorCode);
+                Console.WriteLine(exp.ErrorCode);
             }
             return false;
         }
