@@ -1,4 +1,5 @@
-﻿using Bookflix.Helpers.Seeders;
+﻿using Bookflix.Helpers.JwtUtils;
+using Bookflix.Helpers.Seeders;
 
 namespace Bookflix.Helpers.Extensions
 {
@@ -21,5 +22,13 @@ namespace Bookflix.Helpers.Extensions
             services.AddScoped<BookSeeder>();
             return services;
         }
+
+        public static IServiceCollection AddJwtUtils(this IServiceCollection services)
+        {
+            services.AddScoped<IJwtUtils, JwtUtils.JwtUtils>();
+
+            return services;
+        }
+
     }
 }

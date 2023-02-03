@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Bookflix.Helpers.JwtUtils
 {
-    public class JwtUtils
+    public class JwtUtils : IJwtUtils
     {
         public readonly AppSettings _appSettings;
 

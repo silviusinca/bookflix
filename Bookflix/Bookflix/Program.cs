@@ -3,21 +3,25 @@ using Bookflix.Helpers;
 using Bookflix.Helpers.Extensions;
 using Bookflix.Helpers.Seeders;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// servicii
 builder.Services.AddControllers();
+// db context
 builder.Services.AddDbContext<BookflixContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// servicii
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSeeders();
+builder.Services.AddJwtUtils();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 var app = builder.Build();
+SeedData(app);
 
 // swagger
 if (app.Environment.IsDevelopment())
