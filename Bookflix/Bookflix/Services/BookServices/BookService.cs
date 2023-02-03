@@ -7,12 +7,10 @@ namespace Bookflix.Services.BookServices
     public class BookService : IBookService
     {
         public IBookRepository _bookRepository;
-        public IJwtUtils _jwtUtils;
 
-        public BookService(IBookRepository bookRepository, IJwtUtils jwtUtils)
+        public BookService(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
-            _jwtUtils = jwtUtils;
         }
 
         public async Task Create(Book newBook)

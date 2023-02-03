@@ -58,7 +58,7 @@ namespace Bookflix.Controllers
             return Ok();
         }
         [HttpDelete("delete/{id}")]
-        public IActionResult DeleteApartment(Guid id)
+        public IActionResult DeleteBook(Guid id)
         {
             var bookToDelete = _bookService.GetById(id);
             if (bookToDelete == null)

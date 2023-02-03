@@ -6,6 +6,7 @@ using Bookflix.Repositories.UserBookRepository;
 using Bookflix.Repositories.UserInformationRepository;
 using Bookflix.Repositories.UserRepository;
 using Bookflix.Services.BookServices;
+using Bookflix.Services.ReviewService;
 using Bookflix.Services.UserServices;
 
 namespace Bookflix.Helpers.Extensions
@@ -27,7 +28,7 @@ namespace Bookflix.Helpers.Extensions
         {
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IBookService, BookService>();
-            //services.AddTransient<IReviewService, ReviewService>();
+            services.AddTransient<IReviewService, ReviewService>();
             //services.AddTransient<IUserBookService, UserBookService>();
             //services.AddTransient<IUserInformationService, UserInformationService>();
 
