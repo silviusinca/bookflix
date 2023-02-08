@@ -2,9 +2,7 @@
 using Bookflix.Models;
 using Bookflix.Models.DTOs;
 using Bookflix.Models.Enums;
-using Bookflix.Repositories.BookRepository;
 using Bookflix.Services.BookServices;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookflix.Controllers
@@ -26,6 +24,8 @@ namespace Bookflix.Controllers
             var books = await _bookService.GetAllBooks();
             return Ok(books);
         }
+
+        [Authorization(Role.ADMIN, Role.USER)]
         [HttpPost("add-book")]
         public async Task<IActionResult> Create(BookRequestDTO book)
         {
@@ -40,6 +40,7 @@ namespace Bookflix.Controllers
             await _bookService.Create(bookToCreate);
             return Ok();
         }
+        [Authorization(Role.ADMIN, Role.USER)]
         [HttpPut("update/{id}")]
         public IActionResult UpdateBook(Guid id, BookRequestDTO book)
         {
@@ -57,6 +58,7 @@ namespace Bookflix.Controllers
 
             return Ok();
         }
+        [Authorization(Role.ADMIN)]
         [HttpDelete("delete/{id}")]
         public IActionResult DeleteBook(Guid id)
         {

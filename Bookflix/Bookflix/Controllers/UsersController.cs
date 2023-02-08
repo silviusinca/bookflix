@@ -71,12 +71,13 @@ namespace Bookflix.Controllers
         }
 
         [HttpPut("update/{id}")]
+        [Authorization(Role.ADMIN, Role.USER)]
         public IActionResult UpdateUser(Guid id, [FromBody] UserRequestDTO user)
         {
             var userToUpdate = _userService.GetById(id);
             if (userToUpdate == null)
             {
-                return BadRequest("The book ID was not found!");
+                return BadRequest("The user ID was not found!");
             }
             userToUpdate.FirstName = user.FirstName;
             userToUpdate.LastName = user.LastName;
@@ -86,12 +87,13 @@ namespace Bookflix.Controllers
         }
 
         [HttpDelete("delete/{id}")]
+        [Authorization(Role.ADMIN)]
         public IActionResult DeleteUser(Guid id)
         {
             var userToDelete = _userService.GetById(id);
             if (userToDelete == null)
             {
-                return BadRequest("The book ID was not found!");
+                return BadRequest("The user ID was not found!");
             }
             _userService.Delete(userToDelete);
             _userService.Save();

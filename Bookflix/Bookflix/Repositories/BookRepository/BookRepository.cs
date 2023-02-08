@@ -2,6 +2,7 @@
 using Bookflix.Models;
 using Bookflix.Repositories.GenericRepository;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace Bookflix.Repositories.BookRepository
 {
@@ -26,6 +27,11 @@ namespace Bookflix.Repositories.BookRepository
         public ICollection<Book> GetAll()
         {
             return (ICollection<Book>)_table.Include(book => book.UserBooks);
+        }
+
+        public async Task<IEnumerable<IGrouping<User, Book>>> GroupUsersByBooksReviewd()
+        {
+            return (IEnumerable<IGrouping<User, Book>>) await _table.AsNoTracking().GroupBy(user => user.Reviews).ToListAsync();
         }
     }
 }
