@@ -1,2 +1,0 @@
-C:\Users\Silviu\bookflix\Bookflix\BookflixFrontend\obj\Debug\BookflixFrontend.esproj.SuggestedBindingRedirects.cache
-C:\Users\Silviu\bookflix\Bookflix\BookflixFrontend\obj\Debug\BookflixFrontend.esproj.CoreCompileInputs.cache
