@@ -1,4 +1,5 @@
-﻿using Bookflix.Helpers.JwtUtils;
+﻿using Bookflix.Data;
+using Bookflix.Helpers.JwtUtils;
 using Bookflix.Models;
 using Bookflix.Repositories.BookRepository;
 
@@ -7,6 +8,7 @@ namespace Bookflix.Services.BookServices
     public class BookService : IBookService
     {
         public IBookRepository _bookRepository;
+        public IUnitOfWork _unitOfWork;
 
         public BookService(IBookRepository bookRepository)
         {
@@ -19,9 +21,10 @@ namespace Bookflix.Services.BookServices
             await _bookRepository.SaveAsync();
         }
 
-        public void Delete(Book bookToDelete)
+        public async Task Delete(Book bookToDelete)
         {
             _bookRepository.Delete(bookToDelete);
+            await _unitOfWork.SaveAsync();
         }
 
         public async Task<List<Book>> GetAllBooks()
@@ -39,9 +42,10 @@ namespace Bookflix.Services.BookServices
             return _bookRepository.Save();
         }
 
-        public void Update(Book bookToUpdate)
+        public async Task Update(Book bookToUpdate)
         {
             _bookRepository.Update(bookToUpdate);
+            await _unitOfWork.SaveAsync();
         }
     }
 }

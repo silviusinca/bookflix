@@ -9,8 +9,8 @@ namespace Bookflix.Services.UserServices
         User GetById(Guid id);
         Task Create(User newUser);
         Task<List<User>> GetAllUsers();
-        void Delete(User userToDelete);
-        void Update(User userToUpdate);
+        Task Delete(User userToDelete);
+        Task Update(User userToUpdate);
         bool Save();
     }
 }

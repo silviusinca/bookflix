@@ -1,4 +1,5 @@
-﻿using Bookflix.Models;
+﻿using Bookflix.Data;
+using Bookflix.Models;
 using Bookflix.Repositories.ReviewRepository;
 
 namespace Bookflix.Services.ReviewService
@@ -6,7 +7,7 @@ namespace Bookflix.Services.ReviewService
     public class ReviewService : IReviewService
     {
         public IReviewRepository _reviewRepository;
-
+        public IUnitOfWork _unitOfWork;
         public ReviewService(IReviewRepository reviewRepository)
         {
             _reviewRepository = reviewRepository;
@@ -17,9 +18,11 @@ namespace Bookflix.Services.ReviewService
             await _reviewRepository.SaveAsync();
         }
 
-        public void Delete(Review reviewToDelete)
+        public async Task Delete(Review reviewToDelete)
         {
             _reviewRepository.Delete(reviewToDelete);
+            await _unitOfWork.SaveAsync();
+
         }
 
         public async Task<List<Review>> GetAllReviews()
@@ -37,9 +40,11 @@ namespace Bookflix.Services.ReviewService
             return _reviewRepository.Save();
         }
 
-        public void Update(Review updatedReview)
+        public async Task Update(Review updatedReview)
         {
             _reviewRepository.Update(updatedReview);
+            await _unitOfWork.SaveAsync();
+
         }
     }
 }

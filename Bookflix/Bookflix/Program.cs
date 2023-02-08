@@ -18,6 +18,7 @@ builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSeeders();
 builder.Services.AddJwtUtils();
+builder.Services.AddUnitOfWork();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 var app = builder.Build();

@@ -1,4 +1,5 @@
-﻿using Bookflix.Helpers.JwtUtils;
+﻿using Bookflix.Data;
+using Bookflix.Helpers.JwtUtils;
 using Bookflix.Models;
 using Bookflix.Models.DTOs.UserDTOs;
 using Bookflix.Repositories.UserRepository;
@@ -9,6 +10,7 @@ namespace Bookflix.Services.UserServices
     {
         public IUserRepository _userRepository;
         public IJwtUtils _jwtUtils;
+        public IUnitOfWork _unitOfWork;
 
         public UserService(IUserRepository userRepository, IJwtUtils jwtUtils)
         {
@@ -34,9 +36,11 @@ namespace Bookflix.Services.UserServices
             await _userRepository.SaveAsync();
         }
 
-        public void Delete(User userToDelete)
+        public async Task Delete(User userToDelete)
         {
             _userRepository.Delete(userToDelete);
+            await _unitOfWork.SaveAsync();
+
         }
 
         public async Task<List<User>> GetAllUsers()
@@ -49,9 +53,11 @@ namespace Bookflix.Services.UserServices
             return _userRepository.Save();
         }
 
-        public void Update(User userToUpdate)
+        public async Task Update(User userToUpdate)
         {
             _userRepository.Update(userToUpdate);
+            await _unitOfWork.SaveAsync();
+
         }
         public User GetById(Guid id)
         {

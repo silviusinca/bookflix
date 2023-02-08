@@ -7,5 +7,7 @@ namespace Bookflix.Repositories.UserRepository
     {
         User FindByUsername(string username);
         ICollection<User> FindAll();
+
+        Task<IEnumerable<User>> FindAllWithAtLeastThreeBooksReviewd();
     }
 }

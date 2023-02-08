@@ -6,8 +6,8 @@ namespace Bookflix.Services.ReviewService
     {
         Review GetById(Guid id);
         Task Create(Review newReview);
-        void Update(Review updatedReview);
-        void Delete(Review reviewToDelete);
+        Task Update(Review updatedReview);
+        Task Delete(Review reviewToDelete);
         Task<List<Review>> GetAllReviews();
         bool Save();
     }

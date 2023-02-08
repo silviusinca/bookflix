@@ -1,4 +1,6 @@
-﻿using Bookflix.Helpers.JwtUtils;
+﻿using Bookflix.Data;
+using Bookflix.Data.UnitOfWork;
+using Bookflix.Helpers.JwtUtils;
 using Bookflix.Helpers.Seeders;
 using Bookflix.Repositories.BookRepository;
 using Bookflix.Repositories.ReviewRepository;
@@ -29,8 +31,6 @@ namespace Bookflix.Helpers.Extensions
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<IReviewService, ReviewService>();
-            //services.AddTransient<IUserBookService, UserBookService>();
-            //services.AddTransient<IUserInformationService, UserInformationService>();
 
             return services;
         }
@@ -45,6 +45,12 @@ namespace Bookflix.Helpers.Extensions
         {
             services.AddScoped<IJwtUtils, JwtUtils.JwtUtils>();
 
+            return services;
+        }
+
+        public static IServiceCollection AddUnitOfWork(this IServiceCollection services)
+        {
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             return services;
         }
 

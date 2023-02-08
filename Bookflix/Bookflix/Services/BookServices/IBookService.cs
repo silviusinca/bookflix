@@ -7,8 +7,8 @@ namespace Bookflix.Services.BookServices
         Book GetById(Guid id);
         Task Create(Book newBook);
         Task<List<Book>> GetAllBooks();
-        void Delete(Book bookToDelete);
-        void Update(Book bookToUpdate);
+        Task Delete(Book bookToDelete);
+        Task Update(Book bookToUpdate);
         bool Save();
 
     }

@@ -18,6 +18,11 @@ namespace Bookflix.Repositories.UserRepository
             return (ICollection<User>)_table.Join(_context.UsersInformation, user => user.ID, info => info.UserID,
                 (user, info) => new { user, info }).Select(res => res.user);
         }
+
+        public async Task<IEnumerable<User>> FindAllWithAtLeastThreeBooksReviewd()
+        {
+            return _table.Where(user => user.UserBooks.Count() >= 3);
+        }
     }
 }
 
